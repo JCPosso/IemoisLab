@@ -44,7 +44,7 @@ public class IemoisGUI extends JFrame{
     
     private IemoisGUI() {
         coleccion=new Iemois();
-        coleccion.adicione();
+		coleccion.adicione();
         prepareElementos();
         prepareAcciones();
     }
@@ -275,22 +275,15 @@ public class IemoisGUI extends JFrame{
     private void accionBuscar(){
         String patronBusqueda=busquedaTexto.getText();
         StringBuffer buffer = new StringBuffer();
-		try{
         if(patronBusqueda.length() > 0) {
-			
             ArrayList <Mooc> results = coleccion.busque(patronBusqueda);
-			
             for(int i = 0; i < results.size(); i++) {
                 buffer.append(results.get(i).toString());
                 buffer.append('\n');
                 buffer.append('\n');
              }
-			 
         }
         resultadosTexto.setText(buffer.toString());
-		}catch(IemoisException ie3){
-				JOptionPane.showMessageDialog(this,ie3.getMessage(),"ERROR",JOptionPane.INFORMATION_MESSAGE);
-			}
     } 
     
    public static void main(String args[]) {
