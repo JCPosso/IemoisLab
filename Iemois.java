@@ -99,14 +99,16 @@ public class Iemois{
      * @param prefijo El prefijo a buscar
      * @return 
      */
-    public ArrayList<Mooc> busque(String prefijo){
-        ArrayList<Mooc> resultados=null;
+    public ArrayList<Mooc> busque(String prefijo) throws IemoisException{
+        ArrayList<Mooc> resultados = new ArrayList<Mooc>();
     	prefijo=prefijo.toUpperCase();
     	for(int i=0;i<cursos.size();i++){
     	    if(cursos.get(i).getNombre().toUpperCase().startsWith(prefijo)){
-    	       resultados.add(cursos.get(i));
+				Mooc curso = cursos.get(i);
+    	       resultados.add(curso);
     	    }	
     	}
+		if(resultados.size()==0) throw new IemoisException(IemoisException.CURSO_NO_EXISTE);
         return resultados;
     }
 
