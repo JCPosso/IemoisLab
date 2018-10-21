@@ -108,7 +108,7 @@ public class Iemois{
     	       resultados.add(curso);
     	    }	
     	}
-		if(resultados.size()==0) throw new IemoisException(IemoisException.CURSO_NO_EXISTE);
+		if(resultados.size()==0) throw new IemoisException(IemoisException.CURSO_NO_ENCONTRADO);
         return resultados;
     }
 
